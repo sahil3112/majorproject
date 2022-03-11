@@ -7,7 +7,7 @@ node ('linux') {
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-      app = docker.build("sahil3112/MajorProject")
+      app = docker.build("sahil3112/major_project")
     }
     stage('Post-to-dockerhub') {
         docker.withRegistry('https://registry.hub.docker.com', 'Docker') {
