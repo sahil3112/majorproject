@@ -7,6 +7,7 @@ node ('linux') {
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
+        sh "sudo chmod 666 /var/run/docker.sock"
       app = docker.build("sahil3112/major_project")
     }
     stage('Post-to-dockerhub') {
