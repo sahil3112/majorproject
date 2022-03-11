@@ -1,7 +1,7 @@
 version: '2'
 services:
   snake:
-    image: 'sahil3112/game:test'
+    image: 'major_project:latest'
     environment:
       - "PORT:3000"
     ports:
