@@ -10,6 +10,10 @@ node ('linux') {
     stage('SNYK-SCA'){
         build 'SNYK-SCA'
     }
+    stage('DC-SCA') {
+        sh "npm install --package-lock"
+        build 'Dependency-Check-SCA'
+    }
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
