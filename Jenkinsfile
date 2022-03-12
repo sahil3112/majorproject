@@ -4,11 +4,6 @@ node ('linux') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
     }
-    stage('SNKY-SAST') {
-        sh "cd ${WORKSPACE}"
-        sh "snyk code test --json | snyk-to-html -o snyk-sast.html"
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '.', reportFiles: 'snyk-sast.html', reportName: 'Snyk SAST Report', reportTitles: 'Snyk SAST Report'])
-    }
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
