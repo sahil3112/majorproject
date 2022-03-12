@@ -4,8 +4,11 @@ node ('linux') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
     }
-    stage('SAST'){
+    stage('SNYK-SAST'){
         build 'SNYK-SAST'
+    }
+    stage('SNYK-SCA'){
+        build 'SNYK-SCA'
     }
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
