@@ -14,6 +14,9 @@ node ('linux') {
         sh "npm install --package-lock"
         build 'Dependency-Check-SCA'
     }
+    stage('DT-SCA') {
+        build 'Dependency-Track-SCA'
+    }
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
