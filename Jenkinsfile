@@ -27,7 +27,10 @@ node ('linux') {
         docker.withRegistry('https://registry.hub.docker.com', 'Docker') {
             app.push("latest")
         			}
-         }
+    }
+    stage('SNYK-Container-Security-Testing') {
+        build 'Dependency-Track-SCA'
+    }
     stage('Pull-image-server') {
          sh "docker-compose down"
          sh "docker-compose up -d"	
