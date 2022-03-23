@@ -29,7 +29,10 @@ node ('linux') {
         			}
     }
     stage('SNYK-Container-Security-Testing') {
-        build 'Dependency-Track-SCA'
+        build 'SNYK-Container-Security-Testing'
+    }
+    stage('Aqua-Trivy-image-vulnerability-scanning') {
+        build 'Aqua-Trivy-image-vulnerability-scanning'
     }
     stage('Pull-image-server') {
          sh "docker-compose down"
