@@ -37,5 +37,8 @@ node ('linux') {
     stage('Pull-image-server') {
          sh "docker-compose down"
          sh "docker-compose up -d"	
-      }    
+      }  
+    stage('OWASP ZAP-DAST') {
+        build 'OWASP ZAP-DAST'
+    }
 }
