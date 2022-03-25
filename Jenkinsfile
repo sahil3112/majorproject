@@ -38,7 +38,7 @@ node ('linux') {
          sh "docker-compose down"
          sh "docker-compose up -d"	
       }  
-    stage('OWASP ZAP-DAST') {
-        build 'OWASP ZAP-DAST'
+    stage('OWASP-ZAP-DAST') {
+        build 'OWASP-ZAP-DAST'
     }
 }
